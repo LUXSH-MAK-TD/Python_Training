@@ -1,0 +1,20 @@
+{% extends "registration/base.html" %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<div style="max-width: 400px; margin: 100px auto; padding: 2rem; background: #fff; border-radius: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.1);">
+    <form method="post" action="{% url 'logout' %}">
+        <p style="font-weight: bold;">Welcome, {{ user.username }}. Thanks for logging in.</p>
+        {% csrf_token %}
+        <button type="submit" style="width: 100%; background: #6366f1; color: #fff; border: none; padding: 12px; border-radius: 6px; font-size: 1rem; margin-top: 1rem;">Logout</button>
+    </form>
+</div>
+{% else %}
+<div style="max-width: 400px; margin: 100px auto; padding: 2rem; background: #fff; border-radius: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.1); text-align: center;">
+    <p>Welcome to the Employee System. Please log in or register.<br>
+    <a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a></p>
+</div>
+{% endif %}
+
+{% endblock %}
