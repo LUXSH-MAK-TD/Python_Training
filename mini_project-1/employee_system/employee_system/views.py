@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django import forms
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True, help_text='Required. Enter a valid email address.')
@@ -18,7 +19,7 @@ def registration_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)  
-            return redirect('index')  
+            return redirect('dashboard')  # Redirect to dashboard after registration/login
     else:
         form = RegistrationForm()
     
@@ -26,3 +27,9 @@ def registration_view(request):
 
 def index_view(request):
     return render(request, 'registration/index.html')
+
+@login_required
+def dashboard_view(request):
+    return render(request, 'registration/dashboard.html', {
+        'user': request.user
+    })

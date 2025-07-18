@@ -132,5 +132,5 @@ EMAIL_HOST_USER =  'hadiyapratik77@gmail.com'  # <-- Replace with your Gmail add
 EMAIL_HOST_PASSWORD = 'hddf lxxr waar ybly'  # <-- Replace with your Gmail App Password
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/dashboard/'
 LOGOUT_REDIRECT_URL = '/'

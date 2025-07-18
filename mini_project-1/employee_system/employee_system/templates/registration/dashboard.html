@@ -1,0 +1,18 @@
+{% extends "registration/base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div style="max-width: 500px; margin: 60px auto; padding: 2rem; background: #fff; border-radius: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.1);">
+    <h2>Welcome, {{ user.username }}!</h2>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Member since:</strong> {{ user.date_joined|date:"F d, Y" }}</p>
+    <hr>
+    <nav style="margin-bottom: 1rem;">
+        <a href="{% url 'dashboard' %}">Dashboard</a> |
+        <a href="#">Edit Profile</a> |
+        <a href="{% url 'index' %}">Logout</a>
+    </nav>
+    <p>This is your dashboard. </p>
+</div>
+{% endblock %} 
