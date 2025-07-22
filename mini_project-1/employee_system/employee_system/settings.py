@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'employee_system'
+    'employee_system',
+    'django_celery_beat',
 
 ]
 
@@ -130,9 +131,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER =  'hadiyapratik77@gmail.com'  # <-- Replace with your Gmail address
-EMAIL_HOST_PASSWORD = 'hddf lxxr waar ybly'  # <-- Replace with your Gmail App Password
+EMAIL_HOST_USER =  'hadiyapratik77@gmail.com'  
+EMAIL_HOST_PASSWORD = 'hddf lxxr waar ybly'  
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 LOGIN_REDIRECT_URL = '/dashboard/'
 LOGOUT_REDIRECT_URL = '/'
+
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'
