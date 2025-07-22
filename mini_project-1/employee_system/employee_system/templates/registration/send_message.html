@@ -1,0 +1,17 @@
+{% extends "registration/base.html" %}
+{% block content %}
+  <div class="center-card">
+    <h2 style="margin-bottom:1.5rem; color:#0072ff;">Send Message</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Send</button>
+    </form>
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{ message }}</p>
+      {% endfor %}
+    {% endif %}
+    <a href="{% url 'inbox' %}" style="margin-top:1rem; color:#0072ff;">Go to Inbox</a>
+  </div>
+{% endblock %} 

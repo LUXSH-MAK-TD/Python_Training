@@ -1,0 +1,22 @@
+{% extends "registration/base.html" %}
+{% block content %}
+  <div class="inbox-container">
+    <div class="inbox-title">Inbox</div>
+    {% if messages %}
+      <ul class="inbox-list">
+        {% for msg in messages %}
+          <li>
+            <strong>From:</strong> {{ msg.sender.username }}<br>
+            <strong>Subject:</strong> {{ msg.subject }}<br>
+            <strong>Message:</strong> {{ msg.body }}<br>
+            <strong>Received:</strong> {{ msg.timestamp|date:"Y-m-d H:i" }}<br>
+            <hr>
+            <a href="{% url 'send_message' %}" style="color:#0072ff;">Send a Message</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No messages.</p>
+    {% endif %}
+  </div>
+{% endblock %} 

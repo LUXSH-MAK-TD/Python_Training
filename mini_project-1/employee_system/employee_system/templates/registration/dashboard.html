@@ -13,6 +13,11 @@
         <a href="#">Edit Profile</a> |
         <a href="{% url 'index' %}">Logout</a>
     </nav>
+    <p>Welcome, {{ user.username }}!</p>
+    <ul>
+      <li><a href="{% url 'send_message' %}">Send Message</a></li>
+      <li><a href="{% url 'inbox' %}">Inbox</a></li>
+    </ul>
     <p>This is your dashboard. </p>
 </div>
 {% endblock %} 
